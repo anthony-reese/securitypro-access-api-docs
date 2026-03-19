@@ -1,40 +1,33 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
+title: SecurityPro Access API
+description: Developer documentation for secure authentication, user provisioning, role assignment, and audit workflows.
 template: splash # Remove or comment out this line to display the site sidebar on this page.
+
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  title: SecurityPro Access API
+  tagline: Developer-first documentation for secure authentication, user management, role assignment, and audit event retrieval.
   actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+    - text: Get Started
+      link: /overview
+    - text: Authentication
+      link: /authentication
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## Explore the Docs
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+<CardGrid>
+	<Card title="Overview" icon="information">
+		Learn what the API does, how it is structured, and where to start.
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Authentication" icon="seti:lock">
+		Obtain a bearer token and securely authorize requests.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Users" icon="laptop">
+		Create, retrieve, list, and update users through the API.
 	</Card>
 	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+		Retrieve security and activity events for monitoring and review.
 	</Card>
 </CardGrid>

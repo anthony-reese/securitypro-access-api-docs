@@ -6,19 +6,32 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'SecurityPro Access API',
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/anthony-reese/securitypro-access-api' }],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Getting Started',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Overview', link: '/overview' },
+						{ label: 'Authentication', link: '/authentication' },
+						{ label: 'Quickstart', link: '/quickstart' },
+					],
+				},
+				{
+					label: 'Core Resources',
+					items: [
+						{ label: 'Users', link: '/users' },
+						{ label: 'Roles', link: '/roles' },
+						{ label: 'Audit Events', link: '/audit-events' },
 					],
 				},
 				{
 					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					items: [
+						{ label: 'Error Handling', link: '/error-handling' },
+						{ label: 'Rate Limits', link: '/rate-limits' },
+					],
 				},
 			],
 		}),
