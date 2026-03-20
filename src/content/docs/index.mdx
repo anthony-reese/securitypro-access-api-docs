@@ -1,33 +1,125 @@
 ---
-title: SecurityPro Access API
+title: SecurityPro Access API Reference
+label: API Documentation
 description: Developer documentation for secure authentication, user provisioning, role assignment, and audit workflows.
 template: splash # Remove or comment out this line to display the site sidebar on this page.
 
 hero:
-  title: SecurityPro Access API
-  tagline: Developer-first documentation for secure authentication, user management, role assignment, and audit event retrieval.
+  title: SecurityPro Access API Reference
+  label: API Documentation
+  tagline: Detailed API reference for authentication, user management, roles, and audit events.
   actions:
-    - text: Get Started
+    - text: View API Reference
       link: /overview
-    - text: Authentication
+    - text: Try Quickstart
       link: /authentication
 ---
 
+<div style="margin-top: 16px;">
+  <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 6px;">
+    API Documentation
+  </p>
+
+  <div style="font-size: 0.9rem; color: #94a3b8;">
+    <strong>Base URL:</strong>
+    <code style="margin-left: 6px;">https://api.securitypro.com/v1</code>
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 6px;">
+    Make your first request:
+  </p>
+
+```bash
+curl -X GET "https://api.securitypro.com/v1/users" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Content-Type: application/json"
+```
+</div>
+
+<p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 6px;">
+  200 OK
+</p>
+
+<div style="margin-top: 16px;">
+  <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 6px;">
+    Example Response
+  </p>
+
+```json
+{
+  "data": [
+    {
+      "id": "usr_1024",
+      "email": "user@example.com",
+      "role": "admin",
+      "status": "active",
+      "created_at": "2026-01-15T10:24:32Z"
+    }
+  ],
+  "meta": {
+    "request_id": "req_9f8a7b6c",
+    "pagination": {
+      "limit": 10,
+      "offset": 0,
+      "total": 1
+    }
+  }
+}
+```
+</div>
+
+<div style="margin-top: 20px;">
+  <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 8px;">
+    Common Errors
+  </p>
+
+```json
+{
+  "error": {
+    "code": "unauthorized",
+    "message": "Invalid or missing API token."
+  }
+}
+
+401 Unauthorized — Ensure the Authorization header includes a valid bearer token.
+
+{
+  "error": {
+    "code": "not_found",
+    "message": "Resource not found."
+  }
+}
+
+404 Not Found — The requested resource does not exist or has been removed.
+
+{
+  "error": {
+    "code": "rate_limit_exceeded",
+    "message": "Too many requests. Please retry later."
+  }
+}
+
+429 Too Many Requests — You have exceeded the allowed request rate.
+```
+</div>
+
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Explore the Docs
+## API Reference
 
 <CardGrid>
-	<Card title="Overview" icon="information">
-		Learn what the API does, how it is structured, and where to start.
-	</Card>
 	<Card title="Authentication" icon="seti:lock">
 		Obtain a bearer token and securely authorize requests.
 	</Card>
-	<Card title="Users" icon="laptop">
+	<Card title="Users API" icon="laptop">
 		Create, retrieve, list, and update users through the API.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Retrieve security and activity events for monitoring and review.
+	<Card title="Roles API" icon="information">
+		Create, assign, and manage role-based access controls.
+	</Card>
+	<Card title="Audit Events API" icon="approve-check-circle">
+		Access audit logs for security monitoring, compliance, and investigation.
 	</Card>
 </CardGrid>
