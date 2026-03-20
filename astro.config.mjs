@@ -6,6 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
+			favicon: '/favicon.ico',
 			title: 'SecurityPro Access API',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/anthony-reese/securitypro-access-api' }],
 			sidebar: [
